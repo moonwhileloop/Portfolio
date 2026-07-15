@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+h1{
+    font-size: 70px;
+    background: linear-gradient(90deg, #517, #ff66c4);
+  
+    -webkit-background-clip: text;
+    background-clip: text;
+  
+    -webkit-text-fill-color: transparent;
+  
+    font-weight: bold;
+}
+.software{
+    color: grey;
+    font-size: 30px;
+ }
+
+ .introduction{
+    background-color: black;
+    color: #f9f8f8;
+    text-align: center;
+ }
+
+body{
+    margin: 50px;
+    background-color: black;
+    color: #f9f8f8;
+    
+}
+
+div#about-container{
+    display: inline-block;
+    vertical-align: top; /* Fondamentale per l'allineamento superiore */
+    
+    /* CALCOLO: 25% della riga meno il margine totale esterno */
+    /* Se hai margin: 10px, ogni card ha 10px a dx e 10px a sx = 20px totali */
+    width: calc(50% - 20px); 
+    margin: 50px;
+    margin-left: 10px;
+
+    box-sizing: border-box; /* Mai dimenticare questo! */
+}
+
+b{
+    color: #ff66c4;
+}
+
+.about-me{
+    font-size: 40px;
+
+
+}
+
