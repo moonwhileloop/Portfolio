@@ -2,6 +2,9 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 header{
     background-color: black;
@@ -29,7 +32,48 @@ h1{
     background-color: black;
     color: #f9f8f8;
     text-align: center;
+
  }
+
+ .navbar {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-container {
+  display: flex;
+  gap: 20px; 
+  flex-wrap: wrap; 
+  justify-content: center;
+  margin: 50px;
+}
+
+.menu-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 180px; 
+  padding: 12px 24px;
+  
+  color: #FFFFFF;
+  text-decoration: none; /* Rimuove la sottolineatura di default dei link */
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  
+  border-radius: 50px;
+  background: linear-gradient(to right, #7B2CBF, #FF00FF);
+  
+  transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+  transform: translateY(-3px); /* solleva leggermente il bottone */
+  box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4); /* Crea un leggero alone neon viola */
+  filter: brightness(1.1); /* rende il bottone leggermente luminoso */
+}
 
 body{
     margin: 50px;
@@ -40,24 +84,41 @@ body{
 
 div#about-container{
     display: inline-block;
-    vertical-align: top; /* Fondamentale per l'allineamento superiore */
+    vertical-align: top; 
     
     /* CALCOLO: 25% della riga meno il margine totale esterno */
     /* Se hai margin: 10px, ogni card ha 10px a dx e 10px a sx = 20px totali */
     width: calc(50% - 20px); 
-    margin: 50px;
     margin-left: 10px;
 
     box-sizing: border-box; /* Mai dimenticare questo! */
 }
 
 b{
-    color: #ff66c4;
+    color: #e8acef;
+    font-style: italic;
 }
 
 .about-me{
     font-size: 40px;
 
+
+}
+p{
+    font-size: small;
+}
+
+div#card-container{
+    display: inline-block;
+    vertical-align: top; 
+    
+    /* CALCOLO: 25% della riga meno il margine totale esterno */
+    /* Se hai margin: 10px, ogni card ha 10px a dx e 10px a sx = 20px totali */
+    width: calc(50% - 20px); 
+    margin-left: 10px;
+    margin: solid;
+
+    box-sizing: border-box; /* Mai dimenticare questo! */
 
 }
 
