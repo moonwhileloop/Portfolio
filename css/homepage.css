@@ -14,7 +14,7 @@ header{
 
 h1{
     font-size: 70px;
-    background: linear-gradient(90deg, #517, #ff66c4);
+    background: linear-gradient(90deg, #FF00FF, #e8acef);
   
     -webkit-background-clip: text;
     background-clip: text;
@@ -59,12 +59,11 @@ h1{
   
   color: #FFFFFF;
   text-decoration: none; /* Rimuove la sottolineatura di default dei link */
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 14px;
   
   border-radius: 50px;
-  background: linear-gradient(to right, #7B2CBF, #FF00FF);
+  background: linear-gradient(to right, #FF00FF, #e8acef);
   
   transition: all 0.3s ease;
 }
@@ -73,6 +72,7 @@ h1{
   transform: translateY(-3px); /* solleva leggermente il bottone */
   box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4); /* Crea un leggero alone neon viola */
   filter: brightness(1.1); /* rende il bottone leggermente luminoso */
+   color: #000000; 
 }
 
 body{
@@ -94,31 +94,166 @@ div#about-container{
     box-sizing: border-box; /* Mai dimenticare questo! */
 }
 
+
 b{
-    color: #e8acef;
+    color: #FF00FF;
     font-style: italic;
 }
 
 .about-me{
     font-size: 40px;
-
-
 }
+
 p{
     font-size: small;
+
 }
 
-div#card-container{
-    display: inline-block;
-    vertical-align: top; 
-    
-    /* CALCOLO: 25% della riga meno il margine totale esterno */
-    /* Se hai margin: 10px, ogni card ha 10px a dx e 10px a sx = 20px totali */
-    width: calc(50% - 20px); 
-    margin-left: 10px;
-    margin: solid;
+.project-title{
+    font-size: 40px;
+    text-align: center;
+    padding:40px;
+    margin: 10px;
+}
 
-    box-sizing: border-box; /* Mai dimenticare questo! */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;         /* Fa andare a capo le card se lo schermo si restringe */
+    justify-content: center; /* Centra le card perfettamente nella pagina */
+    gap: 30px;               /* Spazio uniforme tra una card e l'altra */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.project-card {
+    background: rgba(20, 20, 20, 0.8);
+    border-radius: 30px;
+    width: 300px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Importante per mantenere l'effetto all'interno dei bordi */
+    
+    position: relative; 
+    z-index: 1; /* Mantiene il contenuto sopra lo pseudo-elemento */
+    
+    padding: 2px; 
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px; 
+    padding: 2px; 
+    
+    background: linear-gradient(45deg, #8a2be2, #ff007f); 
+    
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    
+    z-index: -1; /* Mette il bordo sotto il contenuto della card */
+    transition: opacity 0.3s ease; /* Per l'effetto hover */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5), 0 0 30px rgba(255, 0, 127, 0.6);
+}
+
+/* Modifica opzionale per il contenuto all'interno */
+.project-content {
+    /* Assicurati che lo sfondo interno della card copra il centro del pseudo-elemento */
+    background: rgba(20, 20, 20, 0.9); 
+    border-radius: 29px; /* Leggermente più piccolo del bordo esterno */
+    padding: 23px; /* Recupera il padding tolto dalla card */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-content h4 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.project-content p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-grow: 1; /* Spinge i tag e il link sempre in basso, allineandoli */
+    margin-bottom: 20px;
+}
+
+/* I tag delle tecnologie (Java, Spring, ecc.) */
+.tech-tags {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tech-tags li {
+    background: rgba(138, 43, 226, 0.2);
+    color: #da70d6;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid rgba(138, 43, 226, 0.5);
+}
+
+.project-link:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #ff007f;
+}
+
+.card-footer {
+    margin-top: auto;
+    padding-top: 20px; 
+    display: flex;
+    justify-content: center;
+}
+
+.github-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50px;
+    
+    background: linear-gradient(to right, #FF00FF, #e8acef);
+    
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.github-btn:hover {
+    color: #000000;     
+    box-shadow: 0 0 15px #FF00FF;
+    transform: translateY(-2px); 
+}
+
+.skills-title{
+    font-size: 40px;
+    text-align: center;
+    padding:40px;
+    margin: 10px;
 
 }
 
