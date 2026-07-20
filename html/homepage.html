@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Consigliato per il responsive -->
   <title>Martina Molteni - Software Developer</title>
   <link rel="stylesheet" href="../css/homepage.css">
+
 </head> 
 <body> 
 
@@ -74,7 +75,7 @@
                     <li>SQL</li>
                 </ul>
                 <footer class="card-footer">
-                  <a href="#" class="github-btn"> <!--Aggiungere link github-->
+                  <a href="#" target="_blank" class="github-btn"> <!--Aggiungere link github-->
                 Go to GitHub
                   </a>
                 </footer>
@@ -90,7 +91,7 @@
                     <li>Pygame</li>
                 </ul>
                 <footer class="card-footer">
-                  <a href="#" class="github-btn"> <!--Aggiungere link github-->
+                  <a href="#" target="_blank" class="github-btn"> <!--Aggiungere link github-->
                 Go to GitHub
                   </a>
                 </footer>
@@ -104,12 +105,80 @@
   <section id="skills">
      <h3 class="skills-title"> Skills & Technologies</h3>
      <div class="skills-container">
+      <article class="skills-card">
+        <div class="Skill-content">
+          <h4>Backend</h4>
+          <ul class="skilltech-tags">
+            <li><a href="../sources/certificazione udemy java.pdf" target="_blank" class="skill-btn">Java</a></li>
+            <li>SpringBoot</li>
+          </ul>
+        </div>
+      </article>
+      
+      <article class="skills-card">
+        <div class="Skill-content">
+          <h4>Frontend</h4>
+          <ul class="skilltech-tags">
+            <li><a href="../sources/html e css.pdf" target="_blank" class="skill-btn">HTML</a></li>
+            <li><a href="../sources/html e css.pdf" target="_blank" class="skill-btn">CSS</a></li>
+            <li>JavaScript</li>
+            <li><a href="../sources/react.pdf" target="_blank" class="skill-btn">React</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="skills-card">
+        <div class="Skill-content">
+          <h4>DataBase&Tools</h4>
+          <ul class="skilltech-tags">
+            <li>SQL</li>
+            <li>Git&GitHub</li>
+            <li>Maven</li>
+            <li>Gradle</li>
+          </ul>
+          </div>
+      </article>
+
+          <article class="skills-card">
+            <div class="Skill-content">
+          <h4>Machine Learning</h4>
+          <ul class="skilltech-tags">
+            <li>Python</li>
+          </ul>
+        </div>
+      </article>
 
      </div>
 
   </section>
+
+  <section id="contact" class="contact-section">
+    <h3 class="contact-title">Get In Touch</h3>
+    <div class="contact-container">
+        <form class="contact-form" action="https://formspree.io/f/xdaqzjqw" method="POST">
+            
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" name="email" placeholder="Your email" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <div class="input-wrapper">
+                    <textarea id="message" name="message" rows="6" placeholder="Your message..." required></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+</section>
+
+  </section>
   
-  <!-- Qui le altre sezioni Contact -->
+
 
 </body>
 </html>

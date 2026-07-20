@@ -69,10 +69,10 @@ h1{
 }
 
 .menu-btn:hover {
-  transform: translateY(-3px); /* solleva leggermente il bottone */
-  box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4); /* Crea un leggero alone neon viola */
-  filter: brightness(1.1); /* rende il bottone leggermente luminoso */
-   color: #000000; 
+    transform: translateY(-3px); /* solleva leggermente il bottone */
+    box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4); /* Crea un leggero alone neon viola */
+    filter: brightness(1.1); /* rende il bottone leggermente luminoso */
+    color: #000000; 
 }
 
 body{
@@ -104,10 +104,10 @@ b{
     font-size: 40px;
 }
 
-p{
-    font-size: small;
 
-}
+
+
+/* --- PROJECTS --- */
 
 .project-title{
     font-size: 40px;
@@ -123,7 +123,7 @@ p{
     gap: 30px;               /* Spazio uniforme tra una card e l'altra */
     max-width: 1200px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 60px 20px;
 }
 
 .project-card {
@@ -133,7 +133,6 @@ p{
     min-height: 250px;
     display: flex;
     flex-direction: column;
-    text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden; /* Importante per mantenere l'effetto all'interno dei bordi */
     
@@ -170,9 +169,8 @@ p{
     box-shadow: 0 0 15px rgba(138, 43, 226, 0.5), 0 0 30px rgba(255, 0, 127, 0.6);
 }
 
-/* Modifica opzionale per il contenuto all'interno */
+
 .project-content {
-    /* Assicurati che lo sfondo interno della card copra il centro del pseudo-elemento */
     background: rgba(20, 20, 20, 0.9); 
     border-radius: 29px; /* Leggermente più piccolo del bordo esterno */
     padding: 23px; /* Recupera il padding tolto dalla card */
@@ -183,7 +181,7 @@ p{
 
 .project-content h4 {
     font-size: 20px;
-    color: #fff;
+    color: #e8acef;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -194,9 +192,9 @@ p{
     line-height: 1.5;
     flex-grow: 1; /* Spinge i tag e il link sempre in basso, allineandoli */
     margin-bottom: 20px;
+    text-align: left;
 }
 
-/* I tag delle tecnologie (Java, Spring, ecc.) */
 .tech-tags {
     list-style: none;
     padding: 0;
@@ -249,11 +247,223 @@ p{
     transform: translateY(-2px); 
 }
 
+
+/* --- SKILLS&TECHNOLOGIES --- */
+
 .skills-title{
     font-size: 40px;
     text-align: center;
     padding:40px;
     margin: 10px;
 
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;         /* Fa andare a capo le card se lo schermo si restringe */
+    justify-content: center; /* Centra le card perfettamente nella pagina */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.skills-card h4{
+    font-size: 20px;
+    color: #e8acef;
+    text-align: center;
+    margin: 5px;
+
+}
+
+
+.skills-card {
+    background: rgba(20, 20, 20, 0.8);
+    border-radius: 30px;
+    width: 250px;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; 
+    
+    position: relative; 
+    z-index: 1; 
+    
+    padding: 25px; 
+}
+
+.skills-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px; 
+    
+    padding: 2px; 
+    
+    background: linear-gradient(45deg, #8a2be2, #ff007f); 
+    
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    
+    z-index: -1; /* bordo sotto il contenuto della card */
+    transition: opacity 0.3s ease; 
+}
+
+.skills-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5), 0 0 30px rgba(255, 0, 127, 0.6);
+}
+
+
+.skilltech-tags {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+
+}
+
+.skilltech-tags li {
+    background: rgba(138, 43, 226, 0.2);
+    color: #da70d6;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid rgba(138, 43, 226, 0.5);
+
+}
+
+.skilltech-tags li a, 
+.skilltech-tags li a:visited {
+    color: inherit;
+    display: inline-block;
+}
+
+.skilltech-tags li:has(a):hover {
+    background: #FF00FF;         
+    color: #000000;             
+    box-shadow: 0 0 15px #FF00FF; 
+    transform: translateY(-2px); 
+    cursor: pointer;
+}
+
+/* --- GET IN TOUCH --- */
+
+.contact-title{
+    font-size: 40px;
+    text-align: center;
+
+    margin: 10px;
+}
+
+.contact-section {
+    padding: 60px 20px;
+    text-align: center;
+    background: #000000; /* Sfondo nero puro come da prototipo */
+}
+
+.contact-title {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #e8acef; 
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-transform: capitalize; /* Rende la prima lettera maiuscola in automatico */
+}
+
+
+.input-wrapper {
+    position: relative;
+    border-radius: 16px; 
+    padding: 1px;        
+    background: linear-gradient(45deg, #8a2be2, #ff007f);
+    transition: box-shadow 0.3s ease;
+}
+
+.form-group:first-of-type .input-wrapper {
+    border-radius: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background: rgba(25, 25, 25, 0.9);
+    border: none;
+    outline: none;
+    color: #ffffff;
+    padding: 14px 20px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+.contact-form input {
+    border-radius: 19px; /* Adattato al wrapper */
+}
+
+.contact-form textarea {
+    border-radius: 15px; 
+    resize: vertical;     
+}
+
+
+.input-wrapper:focus-within {
+    box-shadow: 0 0 12px rgba(255, 0, 127, 0.5), 0 0 4px rgba(138, 43, 226, 0.5);
+}
+
+
+.submit-btn {
+    align-self: flex-start; /* Spinge il bottone a sinistra proprio come nel disegno */
+    background: linear-gradient(45deg, #FF00FF, #e8acef);
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(255, 0, 127, 0.2);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px); /* Un micro-saltino interattivo ci sta benissimo */
+    box-shadow: 0 0 15px #ff007f;
+    opacity: 0.95;
 }
 
