@@ -109,39 +109,59 @@ b{
 
 /* --- PROJECTS --- */
 
-.project-title{
+/* --- PROJECTS (CAROUSEL INTEGRATO) --- */
+
+.project-title {
     font-size: 40px;
     text-align: center;
-    padding:40px;
+    padding: 40px;
     margin: 10px;
 }
 
-.projects-container {
-    display: flex;
-    flex-wrap: wrap;         /* Fa andare a capo le card se lo schermo si restringe */
-    justify-content: center; /* Centra le card perfettamente nella pagina */
-    gap: 30px;               /* Spazio uniforme tra una card e l'altra */
+/* Wrapper principale per contenere le frecce e le card */
+.carousel-wrapper {
+    position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Contenitore delle card in orizzontale */
+.projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    perspective: 1000px; /* Profondità 3D per l'effetto scala */
+}
+
+/* STILE BASE CARD (Card laterali: scure, rimpicciolite e sfocate) */
 .project-card {
     background: rgba(20, 20, 20, 0.8);
     border-radius: 30px;
     width: 300px;
-    min-height: 250px;
+    min-height: 380px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden; /* Importante per mantenere l'effetto all'interno dei bordi */
-    
+    overflow: hidden;
     position: relative; 
-    z-index: 1; /* Mantiene il contenuto sopra lo pseudo-elemento */
+    z-index: 1; 
+    padding: 2px;
     
-    padding: 2px; 
+    /* Animazioni e transizioni carosello */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 0.4;                     /* Semitrasparente */
+    transform: scale(0.88);           /* Più piccola */
+    filter: blur(1px) grayscale(30%);    /* Profondità di campo */
+    pointer-events: none;             /* Disabilita i link/click sulle card laterali */
 }
 
+/* Bordo Sfumato Neon (Il tuo effetto ::before) */
 .project-card::before {
     content: "";
     position: absolute;
@@ -160,20 +180,35 @@ b{
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
     
-    z-index: -1; /* Mette il bordo sotto il contenuto della card */
-    transition: opacity 0.3s ease; /* Per l'effetto hover */
+    z-index: -1;
+    transition: opacity 0.3s ease, background 0.4s ease;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5), 0 0 30px rgba(255, 0, 127, 0.6);
+/* CARD ATTIVA (Centrale: in piena evidenza, nitida e ingrandita) */
+.project-card.active {
+    opacity: 1;
+    transform: scale(1.05);           /* Ingrandita rispetto alle altre */
+    filter: none;                     /* Rimuove sfocatura e grayscale */
+    pointer-events: auto;             /* Rende i pulsanti/link cliccabili */
+    z-index: 2;
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.4), 0 0 50px rgba(138, 43, 226, 0.3);
 }
 
+/* Gradiente più acceso sul bordo della card attiva */
+.project-card.active::before {
+    background: linear-gradient(45deg, #00d2ff, #ff007f);
+}
 
+.project-card.active:hover {
+    transform: scale(1.08) translateY(-5px);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.6), 0 0 40px rgba(255, 0, 127, 0.8);
+}
+
+/* CONTENUTO INTERNO DELLA CARD */
 .project-content {
     background: rgba(20, 20, 20, 0.9); 
-    border-radius: 29px; /* Leggermente più piccolo del bordo esterno */
-    padding: 23px; /* Recupera il padding tolto dalla card */
+    border-radius: 29px;
+    padding: 23px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -190,11 +225,12 @@ b{
     color: #ccc;
     font-size: 0.95rem;
     line-height: 1.5;
-    flex-grow: 1; /* Spinge i tag e il link sempre in basso, allineandoli */
+    flex-grow: 1;
     margin-bottom: 20px;
     text-align: left;
 }
 
+/* TAGS DELLE TECNOLOGIE */
 .tech-tags {
     list-style: none;
     padding: 0;
@@ -214,11 +250,7 @@ b{
     border: 1px solid rgba(138, 43, 226, 0.5);
 }
 
-.project-link:hover {
-    color: #fff;
-    text-shadow: 0 0 5px #ff007f;
-}
-
+/* FOOTER E BOTTONE GITHUB */
 .card-footer {
     margin-top: auto;
     padding-top: 20px; 
@@ -234,9 +266,7 @@ b{
     font-size: 14px;
     font-weight: bold;
     border-radius: 50px;
-    
     background: linear-gradient(to right, #FF00FF, #e8acef);
-    
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -246,6 +276,42 @@ b{
     box-shadow: 0 0 15px #FF00FF;
     transform: translateY(-2px); 
 }
+
+/* FRECCE DI NAVIGAZIONE DEL CAROUSEL */
+.carousel-arrow {
+    background: rgba(20, 20, 20, 0.8);
+    border: 2px solid #ff007f;
+    color: #ffffff;
+    font-size: 24px;
+    
+    /* evitare la forma ovale: */
+    width: 50px;
+    height: 50px;
+    min-width: 50px;  /* Impedisce il restringimento orizzontale */
+    min-height: 50px; /* Mantiene l'altezza minima */
+    flex-shrink: 0;   /* IMPEDISCE a Flexbox di deformare o schiacciare la freccia */
+    
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
+}
+
+.carousel-arrow:hover {
+    background: #ff007f;
+    color: #000000;
+    box-shadow: 0 0 20px #ff007f;
+    transform: scale(1.1);
+}
+
+.prev-btn { margin-right: -15px; }
+.next-btn { margin-left: -15px; }
+
+
 
 
 /* --- SKILLS&TECHNOLOGIES --- */
